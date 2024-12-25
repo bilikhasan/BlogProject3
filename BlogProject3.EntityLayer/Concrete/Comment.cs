@@ -8,6 +8,7 @@ namespace BlogProject3.EntityLayer.Concrete
 {
     public class Comment
     {
-
+        public int CommentId { get; set; }
+        public string CommentDetail { get; set; }
     }
 }
