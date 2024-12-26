@@ -1,6 +1,18 @@
+using BlogProject3.DataAccessLayer.Context;
+using BlogProject3.EntityLayer.Concrete;
+using BlogProject3.PresentationLayer.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<BlogContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<BlogContext>().AddErrorDescriber<CustomIdentityErrorValidator>();
+
+
+
+
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BlogProject3.EntityLayer.Concrete
 {
-    public class AppUser : IdentityUser<int>
+    public class AppUser : IdentityUser<int>     //Aşağıdaki proplar zaten ekleniyor.Id'yi yazmadık int e çevirdik bu satırda
     {
         public string Name { get; set; }
         public string Surname { get; set; }
