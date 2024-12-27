@@ -1,4 +1,8 @@
+using BlogProject3.BusinessLayer.Abstract;
+using BlogProject3.BusinessLayer.Concrete;
+using BlogProject3.DataAccessLayer.Abstract;
 using BlogProject3.DataAccessLayer.Context;
+using BlogProject3.DataAccessLayer.EntityFramework;
 using BlogProject3.EntityLayer.Concrete;
 using BlogProject3.PresentationLayer.Models;
 
@@ -9,6 +13,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BlogContext>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<BlogContext>().AddErrorDescriber<CustomIdentityErrorValidator>();
 
+
+builder.Services.AddScoped<IArticleDal, EfArticleDal>();
+builder.Services.AddScoped<IArticleService, ArticleManager>();
+
+builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
+builder.Services.AddScoped<ICategoryService, CategoryManager>();
 
 
 
@@ -29,8 +39,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
-app.UseAuthorization();
+app.UseAuthentication();    //Bir sayfaya login olmak için kullanýlýr.
+app.UseAuthorization();     //Herhangi bir sayfaya eriþip eriþilemeyeceðini belirler.Sadece member lar eriþsin/Admin ulaþsýn...
 
 app.MapControllerRoute(
     name: "default",
