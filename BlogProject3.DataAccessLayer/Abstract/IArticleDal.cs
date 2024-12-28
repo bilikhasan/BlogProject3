@@ -9,5 +9,6 @@ namespace BlogProject3.DataAccessLayer.Abstract
 {
     public interface IArticleDal :IGenericDal<Article>
     {
+        List<Article> ArticleListWithCategory();
     }
 }

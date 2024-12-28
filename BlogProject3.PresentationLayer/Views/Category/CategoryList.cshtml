@@ -4,7 +4,7 @@
     Layout = null;
 }
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-
+<br /><br />
 <div class="container">
     <table class="table table-bordered table-hover">
         <tr>
@@ -19,8 +19,8 @@
             <tr>
                 <td>@item.CategoryId</td>
                 <td>@item.CategoryName</td>
-                <td><a href="#" class="btn btn-danger">Sil</a></td>
-                <td><a href="#" class="btn btn-success">Güncelle</a></td>
+                <td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
                 <td><a href="#" class="btn btn-warning">Bloglar</a></td>
             </tr>
         }

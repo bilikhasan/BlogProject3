@@ -4,6 +4,7 @@ using BlogProject3.DataAccessLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogProject3.DataAccessLayer.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    partial class BlogContextModelSnapshot : ModelSnapshot
+    [Migration("20241228105518_mig8")]
+    partial class mig8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -140,9 +142,6 @@ namespace BlogProject3.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ArticleId"), 1L, 1);
 
-                    b.Property<int>("AppUserId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -162,8 +161,6 @@ namespace BlogProject3.DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ArticleId");
-
-                    b.HasIndex("AppUserId");
 
                     b.HasIndex("CategoryId");
 
@@ -389,19 +386,11 @@ namespace BlogProject3.DataAccessLayer.Migrations
 
             modelBuilder.Entity("BlogProject3.EntityLayer.Concrete.Article", b =>
                 {
-                    b.HasOne("BlogProject3.EntityLayer.Concrete.AppUser", "AppUser")
-                        .WithMany("Articles")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("BlogProject3.EntityLayer.Concrete.Category", "Category")
                         .WithMany("Articles")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("AppUser");
 
                     b.Navigation("Category");
                 });
@@ -455,11 +444,6 @@ namespace BlogProject3.DataAccessLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("BlogProject3.EntityLayer.Concrete.AppUser", b =>
-                {
-                    b.Navigation("Articles");
                 });
 
             modelBuilder.Entity("BlogProject3.EntityLayer.Concrete.Category", b =>
