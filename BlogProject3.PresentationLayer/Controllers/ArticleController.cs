@@ -48,6 +48,10 @@ namespace BlogProject3.PresentationLayer.Controllers
             return RedirectToAction("ArticleList");
         }
 
-
+        public IActionResult ArticleDetail(int id)
+        {
+            var value = _articleService.TArticleListWithCategoryAndAppUserByArticleId(id);
+            return View(value);
+        }
     }
 }

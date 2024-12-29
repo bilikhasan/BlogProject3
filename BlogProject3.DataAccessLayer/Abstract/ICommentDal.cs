@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BlogProject3.DataAccessLayer.Abstract
 {
-    public interface ICommentDal :IGenericDal<Comment>
+    public interface ICommentDal : IGenericDal<Comment>
     {
+        List<Comment> GetCommentsByArticleId(int id);
     }
 }
