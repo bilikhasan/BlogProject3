@@ -1,6 +1,6 @@
 ﻿@model List<Article>
 
-<div class="col-md-8">
+@* <div class="col-md-8">
     <h3 class="mb-4">Blog Listesi</h3>
 
     <!-- Blog 1 -->
@@ -17,6 +17,37 @@
             </div>
         </div>
     }
+</div> *@
 
 
-</div>
+@foreach (var item in Model)
+{
+    <hr class="invis">
+
+    <div class="post-media">
+        <a href="marketing-single.html" title="@item.Title">
+            <img src="@item.CoverImageUrl" alt="" class="img-fluid">
+            <div class="hovereffect">
+                <span></span>
+            </div>
+            <!-- end hover -->
+        </a>
+    </div>
+    <div class="blog-meta big-meta text-center">
+        <div class="post-sharing">
+            <ul class="list-inline">
+                <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Facebook'ta Paylaş</span></a></li>
+                <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Twitter'da Paylaş</span></a></li>
+                <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+        </div><!-- end post-sharing -->
+        <h4><a href="/Article/ArticleDetail/@item.ArticleId" title="">@item.Title</a></h4>
+        <p>@item.Detail.Substring(0, 200)... <a href="/Article/ArticleDetail/@item.ArticleId"><b>Devamını Oku</b></a></p>
+        <small><a href="#" title="Bu yazı @item.Category.CategoryName kategorisinde yer almaktadır.">@item.Category.CategoryName</a></small>
+        <small><a title="Bu yazı @item.CreatedDate.ToString("dd-MMM-yyyy") tarihinde oluşturulmuştur. ">@item.CreatedDate.ToString("dd-MMM-yyyy")</a></small>
+        <small><a href="#" title="Bu yazı @item.AppUser.Name @item.AppUser.Surname tarafından oluşturulmuştur.">@item.AppUser.Name @item.AppUser.Surname</a></small>
+        <small><a title="Bu yazı şimdiye kadar @item.ArticleViewCount görüntülenme almıştır."><i class="fa fa-eye"></i>@item.ArticleViewCount</a></small>
+    </div>
+
+    <!-- end meta -->
+}

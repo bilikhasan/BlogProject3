@@ -1,6 +1,6 @@
 ﻿@model List<Category>
 
-<div class="mb-4">
+@* <div class="mb-4">
     <h5 class="border-bottom pb-2">Kategoriler</h5>
     <ul class="list-group">
         @foreach(var item in Model)
@@ -9,4 +9,20 @@
         }
 
     </ul>
-</div>
+</div> *@
+
+
+
+@foreach(var item in Model)
+{
+<div class="widget">
+    <h2 class="widget-title">Popular Categories / Kategoriler</h2>
+    <div class="link-widget">
+        <ul>
+            <li><a href="#">@item.CategoryName <span>(21)</span></a></li>
+
+        </ul>
+    </div><!-- end link-widget -->
+</div><!-- end widget -->
+}
+
