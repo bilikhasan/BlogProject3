@@ -31,6 +31,11 @@ namespace BlogProject3.BusinessLayer.Concrete
             return _articleDal.ArticleListWithCategoryAndAppUserByArticleId(id);
         }
 
+        public void TArticleViewCountIncrease(int id)
+        {
+            _articleDal.ArticleViewCountIncrease(id);
+        }
+
         public void TDelete(int id)
         {
             _articleDal.Delete(id);

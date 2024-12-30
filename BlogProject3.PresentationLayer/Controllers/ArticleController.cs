@@ -50,7 +50,8 @@ namespace BlogProject3.PresentationLayer.Controllers
 
         public IActionResult ArticleDetail(int id)
         {
-            var value = _articleService.TArticleListWithCategoryAndAppUserByArticleId(id);
+            _articleService.TArticleViewCountIncrease(id);                                  //Önce arttırma işlemi
+            var value = _articleService.TArticleListWithCategoryAndAppUserByArticleId(id);  //Sonra Article'ı getirecek.
             return View(value);
         }
     }
