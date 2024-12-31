@@ -3,6 +3,9 @@ using BlogProject3.BusinessLayer.Concrete;
 using BlogProject3.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using PagedList;
+using PagedList.Mvc;
+
 
 namespace BlogProject3.PresentationLayer.Controllers
 {
@@ -10,11 +13,19 @@ namespace BlogProject3.PresentationLayer.Controllers
     {
         private readonly IArticleService _articleService;
         private readonly ICategoryService _categoryService;
-        public ArticleController(IArticleService articleService, ICategoryService categoryService)
+        private readonly INewsletterService _newsletterService;
+        public ArticleController(IArticleService articleService, ICategoryService categoryService, INewsletterService newsletterService)
         {
             _articleService = articleService;
             _categoryService = categoryService;
+            _newsletterService = newsletterService;
         }
+
+
+
+
+
+
         public IActionResult ArticleList()
         {
             var values = _articleService.TArticleListWithCategory();
@@ -53,6 +64,23 @@ namespace BlogProject3.PresentationLayer.Controllers
             _articleService.TArticleViewCountIncrease(id);                                  //Önce arttırma işlemi
             var value = _articleService.TArticleListWithCategoryAndAppUserByArticleId(id);  //Sonra Article'ı getirecek.
             return View(value);
+        }
+
+
+
+
+
+        //[HttpGet]
+        //public IActionResult SubscribeNewsletter()
+        //{
+        //    return View();
+        //}
+        [HttpPost]
+        public IActionResult SubscribeNewsletter(Newsletter newsletter)
+        {
+            _newsletterService.TInsert(newsletter);
+            return RedirectToAction("Index");
+
         }
     }
 }

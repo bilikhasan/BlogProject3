@@ -25,6 +25,11 @@ builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
 builder.Services.AddScoped<ICommentDal, EfCommentDal>();
 builder.Services.AddScoped<ICommentService, CommentManager>();
 
+builder.Services.AddScoped<INewsletterDal, EfNewsletterDal>();
+builder.Services.AddScoped<INewsletterService, NewsletterManager>();
+
+
+
 
 
 builder.Services.AddControllersWithViews();

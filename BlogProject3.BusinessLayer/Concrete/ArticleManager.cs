@@ -52,6 +52,12 @@ namespace BlogProject3.BusinessLayer.Concrete
         {
             _articleDal.Insert(entity);
         }
+
+        public List<Article> TLastThreeArticles()
+        {
+            return _articleDal.LastThreeArticles();
+        }
+
         public void TUpdate(Article entity)
         {
             _articleDal.Update(entity);

@@ -42,5 +42,12 @@ namespace BlogProject3.DataAccessLayer.EntityFramework
             updatedValue.ArticleViewCount += 1;
             context.SaveChanges();
         }
+
+        public List<Article> LastThreeArticles()
+        {
+            var context = new BlogContext();
+            var values = context.Articles.OrderByDescending(x => x.ArticleId).Take(3).ToList();
+            return values;
+        }
     }
 }

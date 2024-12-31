@@ -13,16 +13,18 @@
 
 
 
-@foreach(var item in Model)
-{
 <div class="widget">
-    <h2 class="widget-title">Popular Categories / Kategoriler</h2>
-    <div class="link-widget">
-        <ul>
-            <li><a href="#">@item.CategoryName <span>(21)</span></a></li>
+    <h2 class="widget-title">Kategoriler</h2>
+    @foreach (var item in Model)
+    {
+        <div class="link-widget">
+            <ul>
+                <li><a href="#">@item.CategoryName <span>(21)</span></a></li>
 
-        </ul>
-    </div><!-- end link-widget -->
+            </ul>
+        </div>
+
+        <!-- end link-widget -->
+    }
+
 </div><!-- end widget -->
-}
-

@@ -78,7 +78,7 @@
 
 
 @await Component.InvokeAsync("_DefaultHeadComponentPartial")
-
+<html>
 <body>
 
     <div id="wrapper">
@@ -116,23 +116,23 @@
             </div><!-- end container-fluid -->
         </header><!-- end market-header -->
 
-        <section id="cta" class="section">
+        <section id="cta" class="section" style="background-image:url(https://i.hizliresim.com/ixi9816.jpg)">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-12 align-self-center">
-                        <h2>A digital marketing blog</h2>
-                        <p class="lead"> Aenean ut hendrerit nibh. Duis non nibh id tortor consequat cursus at mattis felis. Praesent sed lectus et neque auctor dapibus in non velit. Donec faucibus odio semper risus rhoncus rutrum. Integer et ornare mauris.</p>
-                        <a href="#" class="btn btn-primary">Try for free</a>
+                        <h2>Blog Yazma Tavsiyeleri</h2>
+                        <p class="lead"> Blog yazarken öncelikle hedef kitlenizi belirlemek ve onların ihtiyaçlarına uygun içerikler oluşturmak çok önemlidir. İlgi çekici bir girişle okuyucuların dikkatini çekin ve yazınızı kolay okunabilir hale getirmek için kısa paragraflar, madde işaretleri ve başlıklar kullanın. Kendi deneyimlerinizi veya özgün bakış açınızı paylaşarak yazınıza samimiyet katabilirsiniz.</p>
+                        <a href="#" class="btn btn-primary">Devamını Oku!</a>
                     </div>
                     <div class="col-lg-4 col-md-12">
-                        <div class="newsletter-widget text-center align-self-center">
-                            <h3>Hemen üye olun!</h3>
-                            <p>Subscribe to our weekly Newsletter and receive updates via email.</p>
-                            <form class="form-inline" method="post">
-                                <input type="text" name="email" placeholder="Add your email here.." required class="form-control" />
-                                <input type="submit" value="Subscribe" class="btn btn-default btn-block" />
-                            </form>
-                        </div><!-- end newsletter -->
+                       
+                        
+                        
+
+                        @await Component.InvokeAsync("_DefaultNewsletterComponentPartial")
+
+
+
                     </div>
                 </div>
             </div>
@@ -147,13 +147,6 @@
                                 <div class="blog-box wow fadeIn">
 
                                     <!-- end media -->
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                       
                                     @await Component.InvokeAsync("_DefaultArticleListComponentPartial")
 
 
@@ -166,7 +159,7 @@
 
                                 <hr class="invis">
 
-                                
+
                             </div>
                         </div>
 
@@ -190,49 +183,12 @@
 
                     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <div class="sidebar">
-                            <div class="widget">
-                                <h2 class="widget-title">Recent Posts</h2>
-                                <div class="blog-list-widget">
-                                    <div class="list-group">
-                                        <a href="marketing-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="w-100 justify-content-between">
-                                                <img src="upload/small_07.jpg" alt="" class="img-fluid float-left">
-                                                <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
-                                                <small>12 Jan, 2016</small>
-                                            </div>
-                                        </a>
-
-                                        <a href="marketing-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="w-100 justify-content-between">
-                                                <img src="upload/small_08.jpg" alt="" class="img-fluid float-left">
-                                                <h5 class="mb-1">Let's make an introduction for creative life</h5>
-                                                <small>11 Jan, 2016</small>
-                                            </div>
-                                        </a>
-
-                                        <a href="marketing-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="w-100 last-item justify-content-between">
-                                                <img src="upload/small_09.jpg" alt="" class="img-fluid float-left">
-                                                <h5 class="mb-1">Did you see the most beautiful sea in the world?</h5>
-                                                <small>07 Jan, 2016</small>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div><!-- end blog-list -->
-                            </div><!-- end widget -->
-
-                            <div id="" class="widget">
-                                <h2 class="widget-title">Advertising</h2>
-                                <div class="banner-spot clearfix">
-                                    <div class="banner-img">
-                                        <img src="https://i.hizliresim.com/suxswcs.jpeg" alt="" class="img-fluid">
-                                    </div><!-- end banner-img -->
-                                </div><!-- end banner -->
-                            </div><!-- end widget -->
-                            @await Component.InvokeAsync("_DefaultSocialMediaComponentPartial")
 
 
 
+                       
+
+                            @await Component.InvokeAsync("_DefaultRecentPostsListComponentPartial")
 
 
 
@@ -248,9 +204,12 @@
             </div><!-- end container -->
         </section>
 
+
+
         <footer class="footer">
             <div class="container">
                 <div class="row">
+
                     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <h2 class="widget-title">Recent Posts</h2>
@@ -366,13 +325,7 @@
         <div class="dmtop">Scroll to Top</div>
 
     </div><!-- end wrapper -->
-    <!-- Core JavaScript
-    ================================================== -->
-    <script src="~/markedia/js/jquery.min.js"></script>
-    <script src="~/markedia/js/tether.min.js"></script>
-    <script src="~/markedia/js/bootstrap.min.js"></script>
-    <script src="~/markedia/js/animate.js"></script>
-    <script src="~/markedia/js/custom.js"></script>
+    @await Component.InvokeAsync("_DefaultScriptsComponentPartial");
 
 </body>
 </html>
