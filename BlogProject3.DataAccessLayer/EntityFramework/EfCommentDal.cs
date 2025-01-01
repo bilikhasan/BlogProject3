@@ -15,6 +15,7 @@ namespace BlogProject3.DataAccessLayer.EntityFramework
     {
         public EfCommentDal(BlogContext context) : base(context)
         {
+
         }
 
         public List<Comment> GetCommentsByArticleId(int id)

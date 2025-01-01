@@ -14,11 +14,13 @@ namespace BlogProject3.PresentationLayer.Controllers
         private readonly IArticleService _articleService;
         private readonly ICategoryService _categoryService;
         private readonly INewsletterService _newsletterService;
-        public ArticleController(IArticleService articleService, ICategoryService categoryService, INewsletterService newsletterService)
+        private readonly ICommentService _commentService;
+        public ArticleController(IArticleService articleService, ICategoryService categoryService, INewsletterService newsletterService, ICommentService commentService)
         {
             _articleService = articleService;
             _categoryService = categoryService;
             _newsletterService = newsletterService;
+            _commentService = commentService;
         }
 
 
@@ -70,17 +72,12 @@ namespace BlogProject3.PresentationLayer.Controllers
 
 
 
-        //[HttpGet]
-        //public IActionResult SubscribeNewsletter()
-        //{
-        //    return View();
-        //}
+
         [HttpPost]
         public IActionResult SubscribeNewsletter(Newsletter newsletter)
         {
             _newsletterService.TInsert(newsletter);
             return RedirectToAction("Index");
-
         }
     }
 }

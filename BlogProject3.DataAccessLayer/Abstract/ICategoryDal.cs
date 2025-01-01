@@ -7,7 +7,13 @@ using System.Threading.Tasks;
 
 namespace BlogProject3.DataAccessLayer.Abstract
 {
-    public interface ICategoryDal :IGenericDal<Category>
+    public interface ICategoryDal : IGenericDal<Category>
     {
+        List<Category> PopularCategories();
+
+
+
+        List<Category> ArticleCountGroupedByCategory();
+
     }
 }

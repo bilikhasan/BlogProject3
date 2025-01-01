@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace BlogProject3.BusinessLayer.Abstract
 {
-    public interface ICategoryService :IGenericService<Category>
+    public interface ICategoryService : IGenericService<Category>
     {
+        public List<Category> TPopularCategories();
+
+        public List<Category> TArticleCountGroupedByCategory();
 
     }
 }

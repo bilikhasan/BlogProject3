@@ -31,7 +31,6 @@ builder.Services.AddScoped<INewsletterService, NewsletterManager>();
 
 
 
-
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

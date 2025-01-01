@@ -10,6 +10,11 @@ namespace BlogProject3.EntityLayer.Concrete
     {
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public List<Article> Articles { get; set; }
+        public List<Article> Articles { get; set; }        //Bir kategori birden fazla makaleyi barındırabilir.
+
+
+
+
+        public int? CategoryArticleCount { get; set; }
     }
 }

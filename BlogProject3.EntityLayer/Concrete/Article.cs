@@ -25,5 +25,6 @@ namespace BlogProject3.EntityLayer.Concrete
 
         public List<Comment> Comments { get; set; }
 
+
     }
 }

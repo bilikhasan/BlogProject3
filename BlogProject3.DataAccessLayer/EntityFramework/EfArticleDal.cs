@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,8 @@ namespace BlogProject3.DataAccessLayer.EntityFramework
         public EfArticleDal(BlogContext context) : base(context)
         {
         }
+
+
         public List<Article> ArticleListWithCategory()
         {
             var context = new BlogContext();
@@ -49,5 +52,13 @@ namespace BlogProject3.DataAccessLayer.EntityFramework
             var values = context.Articles.OrderByDescending(x => x.ArticleId).Take(3).ToList();
             return values;
         }
+
+        public List<Article> PopularArticles()
+        {
+            var context = new BlogContext();
+            var values = context.Articles.OrderByDescending(x => x.ArticleViewCount).Take(3).ToList();
+            return values;
+        }
+
     }
 }

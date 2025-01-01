@@ -16,6 +16,8 @@ namespace BlogProject3.BusinessLayer.Concrete
         {
             _articleDal = articleDal;
         }
+
+
         public List<Article> TArticleListWithCategory()
         {
             return _articleDal.ArticleListWithCategory();
@@ -52,12 +54,14 @@ namespace BlogProject3.BusinessLayer.Concrete
         {
             _articleDal.Insert(entity);
         }
-
         public List<Article> TLastThreeArticles()
         {
             return _articleDal.LastThreeArticles();
         }
-
+        public List<Article> TPopularArticles()
+        {
+            return _articleDal.PopularArticles();
+        }
         public void TUpdate(Article entity)
         {
             _articleDal.Update(entity);

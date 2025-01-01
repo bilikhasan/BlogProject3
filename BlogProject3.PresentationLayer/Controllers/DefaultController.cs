@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BlogProject3.DataAccessLayer.Context;
+using Microsoft.AspNetCore.Mvc;
+using PagedList;
+using PagedList.Mvc;
+
 
 namespace BlogProject3.PresentationLayer.Controllers
 {
@@ -6,6 +10,10 @@ namespace BlogProject3.PresentationLayer.Controllers
     {
         public IActionResult Index()
         {
+            //var context = new BlogContext();
+            //var value = context.Articles.ToList();
+            //return View(value);
+
             return View();
         }
     }

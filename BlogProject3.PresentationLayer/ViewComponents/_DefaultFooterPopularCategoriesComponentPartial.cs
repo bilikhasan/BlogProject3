@@ -3,18 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BlogProject3.PresentationLayer.ViewComponents
 {
-    public class _DefaultCategoryListComponentPartial : ViewComponent
+    public class _DefaultFooterPopularCategoriesComponentPartial : ViewComponent
     {
         private readonly ICategoryService _categoryService;
-        private readonly IArticleService _articleService;
-        public _DefaultCategoryListComponentPartial(ICategoryService categoryService, IArticleService articleService)
+
+        public _DefaultFooterPopularCategoriesComponentPartial(ICategoryService categoryService)
         {
             _categoryService = categoryService;
-            _articleService = articleService;
         }
         public IViewComponentResult Invoke()
         {
-            var values = _categoryService.TArticleCountGroupedByCategory();
+            var values = _categoryService.TPopularCategories();
             return View(values);
         }
     }

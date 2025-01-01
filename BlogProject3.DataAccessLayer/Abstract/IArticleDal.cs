@@ -17,5 +17,9 @@ namespace BlogProject3.DataAccessLayer.Abstract
 
 
         List<Article> LastThreeArticles();
+        List<Article> PopularArticles();
+
+
+
     }
 }

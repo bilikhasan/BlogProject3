@@ -17,6 +17,12 @@ namespace BlogProject3.BusinessLayer.Concrete
         {
             _categoryDal = categoryDal;
         }
+
+        public List<Category> TArticleCountGroupedByCategory()
+        {
+            return _categoryDal.ArticleCountGroupedByCategory();
+        }
+
         public void TDelete(int id)
         {
             _categoryDal.Delete(id);
@@ -31,7 +37,7 @@ namespace BlogProject3.BusinessLayer.Concrete
         }
         public void TInsert(Category entity)
         {
-            if(entity.CategoryName.Length>=5 && entity.CategoryName.Length<=50)
+            if (entity.CategoryName.Length >= 5 && entity.CategoryName.Length <= 50)
             {
                 _categoryDal.Insert(entity);
             }
@@ -39,6 +45,11 @@ namespace BlogProject3.BusinessLayer.Concrete
             {
                 //hata mesajı buraya verilecek.
             }
+        }
+
+        public List<Category> TPopularCategories()
+        {
+            return _categoryDal.PopularCategories();
         }
 
         public void TUpdate(Category entity)

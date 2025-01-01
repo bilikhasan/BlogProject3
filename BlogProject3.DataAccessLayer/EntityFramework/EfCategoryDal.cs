@@ -14,6 +14,21 @@ namespace BlogProject3.DataAccessLayer.EntityFramework
     {
         public EfCategoryDal(BlogContext context) : base(context)
         {
+
+        }
+
+        public List<Category> ArticleCountGroupedByCategory()
+        {
+            var context = new BlogContext();
+            var values = context.Categories.OrderByDescending(x => x.CategoryArticleCount).ToList();
+            return values;
+        }
+
+        public List<Category> PopularCategories()
+        {
+            var context = new BlogContext();
+            var values = context.Categories.OrderByDescending(x => x.CategoryArticleCount).ToList();
+            return values;
         }
     }
 }
