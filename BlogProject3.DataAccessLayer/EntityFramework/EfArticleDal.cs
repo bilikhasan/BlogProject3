@@ -17,6 +17,7 @@ namespace BlogProject3.DataAccessLayer.EntityFramework
     {
         public EfArticleDal(BlogContext context) : base(context)
         {
+
         }
 
 
@@ -45,6 +46,12 @@ namespace BlogProject3.DataAccessLayer.EntityFramework
             updatedValue.ArticleViewCount += 1;
             context.SaveChanges();
         }
+
+
+
+
+
+
 
         public List<Article> LastThreeArticles()
         {

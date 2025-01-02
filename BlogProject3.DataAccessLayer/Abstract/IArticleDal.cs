@@ -15,9 +15,13 @@ namespace BlogProject3.DataAccessLayer.Abstract
         void ArticleViewCountIncrease(int id);
 
 
-
         List<Article> LastThreeArticles();
         List<Article> PopularArticles();
+
+
+
+
+
 
 
 

@@ -18,6 +18,7 @@ namespace BlogProject3.BusinessLayer.Concrete
         }
 
 
+
         public List<Article> TArticleListWithCategory()
         {
             return _articleDal.ArticleListWithCategory();
