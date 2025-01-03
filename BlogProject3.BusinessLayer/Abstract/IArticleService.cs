@@ -24,6 +24,8 @@ namespace BlogProject3.BusinessLayer.Abstract
 
 
 
+        public Article TGetAboutWriter(int id);
+
 
     }
 }

@@ -17,10 +17,7 @@ namespace BlogProject3.DataAccessLayer.EntityFramework
     {
         public EfArticleDal(BlogContext context) : base(context)
         {
-
         }
-
-
         public List<Article> ArticleListWithCategory()
         {
             var context = new BlogContext();
@@ -51,7 +48,13 @@ namespace BlogProject3.DataAccessLayer.EntityFramework
 
 
 
-
+  
+        public Article GetAboutWriter(int id)
+        {
+            var context = new BlogContext();
+            var values = context.Articles.Where(x => x.ArticleId == id).Include(y => y.AppUser).FirstOrDefault();
+            return values;
+        }
 
         public List<Article> LastThreeArticles()
         {

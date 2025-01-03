@@ -22,8 +22,7 @@ namespace BlogProject3.DataAccessLayer.Abstract
 
 
 
-
-
+        Article GetAboutWriter(int id);
 
     }
 }

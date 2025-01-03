@@ -16,9 +16,6 @@ namespace BlogProject3.BusinessLayer.Concrete
         {
             _articleDal = articleDal;
         }
-
-
-
         public List<Article> TArticleListWithCategory()
         {
             return _articleDal.ArticleListWithCategory();
@@ -43,6 +40,12 @@ namespace BlogProject3.BusinessLayer.Concrete
         {
             _articleDal.Delete(id);
         }
+
+        public Article TGetAboutWriter(int id)
+        {
+            return _articleDal.GetAboutWriter(id);
+        }
+
         public Article TGetById(int id)
         {
             return _articleDal.GetById(id);
