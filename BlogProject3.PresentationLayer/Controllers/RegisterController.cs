@@ -27,7 +27,8 @@ namespace BlogProject3.PresentationLayer.Controllers
                 Email = model.Email,                //Buradaki 5 özelliği appUser Nesnesine atadım.
                 Surname = model.Surname,
                 UserName = model.Username,
-                ImageUrl = "test"
+                ImageUrl = "test",
+                Description="Örnek Açıklama"
             };
             var result = await _userManager.CreateAsync(appUser, model.Password);
             if(result.Succeeded)

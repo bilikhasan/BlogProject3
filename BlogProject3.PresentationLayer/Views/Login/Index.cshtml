@@ -2,10 +2,107 @@
 @{
     Layout = null;
 }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Sayfası</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            width: 90%;
+            max-width: 350px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+            .login-container h1 {
+                margin-bottom: 15px;
+                font-size: 24px;
+            }
+
+            .login-container form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px; /* Input'lar arasındaki boşluk */
+            }
+
+            .login-container input {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                background: rgba(255, 255, 255, 0.8);
+                font-size: 16px;
+                box-sizing: border-box; /* Genişlik sorunlarını önlemek için */
+            }
+
+                .login-container input:focus {
+                    outline: none;
+                    box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+                }
+
+            .login-container button {
+                background: #ff6a00;
+                border: none;
+                padding: 10px;
+                color: #fff;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s ease, transform 0.3s ease;
+            }
+
+                .login-container button:hover {
+                    background: #ff8800;
+                    transform: scale(1.05);
+                }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form method="post">
+            <input type="text" asp-for="UserName" placeholder="Kullanıcı Adınızı Giriniz" required>
+            <input type="password"  asp-for="Password" placeholder="Şifrenizi Giriniz" required>
+            <button type="submit">Giriş Yap</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+@* 
+ESKİ OLAN (HOCA)
+@{
+    Layout = null;
+}
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-
 <div class="container">
-
     <form method="post">
         <br /><br />
         <div class="alert alert-info">Identity Giriş Ekranı</div>
@@ -19,3 +116,4 @@
         <button class="btn btn-primary">Giriş Yap</button>
     </form>
 </div>
+ *@

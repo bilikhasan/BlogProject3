@@ -3,6 +3,94 @@
     Layout = null;
 }
 
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kayıt Sayfası</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.pinimg.com/originals/79/f3/71/79f371e24d93ba309fc6de0fdfcc93d0.png');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .register-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            box-sizing: border-box;
+        }
+
+            .register-container h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .register-container form {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .register-container input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 20px;
+                box-sizing: border-box;
+            }
+
+            .register-container button {
+                padding: 10px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 40px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+                .register-container button:hover {
+                    background-color: #45a049;
+                }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Kayıt Ol</h2>
+        <form method="post">
+            <input type="text" asp-for="Name" placeholder="Adınızı Giriniz" required>
+            <br />
+            <input type="text" asp-for="Surname" placeholder="Soyadınızı Giriniz" required>
+            <br />
+            <input type="email" asp-for="Email" placeholder="E-posta adresinizi Giriniz" required>
+            <br />
+            <input type="text" asp-for="Username" placeholder="Kullanıcı Adı Oluşturun" required>
+            <br />
+            <input type="password" asp-for="Password" placeholder="Şifrenizi Oluşturun" required>
+            <br />
+            <button type="submit">Kayıt Ol</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+@* 
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 <div class="container">
@@ -25,8 +113,6 @@
         <input type="text" class="form-control" asp-for="Password" />
         <br />
         <button class="btn btn-primary">Kullanıcı Kaydet</button>
-
         <div class="text-danger" style="border-left-style:dotted " asp-validation-summary="ModelOnly"></div>
-
     </form>
-</div>
+</div> *@
