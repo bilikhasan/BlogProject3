@@ -1,10 +1,12 @@
 using BlogProject3.BusinessLayer.Abstract;
 using BlogProject3.BusinessLayer.Concrete;
+using BlogProject3.BusinessLayer.Container;
 using BlogProject3.DataAccessLayer.Abstract;
 using BlogProject3.DataAccessLayer.Context;
 using BlogProject3.DataAccessLayer.EntityFramework;
 using BlogProject3.EntityLayer.Concrete;
 using BlogProject3.PresentationLayer.Models;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,25 +15,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BlogContext>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<BlogContext>().AddErrorDescriber<CustomIdentityErrorValidator>();
 
-builder.Services.AddScoped<IArticleDal, EfArticleDal>();
-builder.Services.AddScoped<IArticleService, ArticleManager>();
-
-builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
-builder.Services.AddScoped<ICategoryService, CategoryManager>();
-
-builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
-builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
-
-builder.Services.AddScoped<ICommentDal, EfCommentDal>();
-builder.Services.AddScoped<ICommentService, CommentManager>();
-
-builder.Services.AddScoped<INewsletterDal, EfNewsletterDal>();
-builder.Services.AddScoped<INewsletterService, NewsletterManager>();
 
 
+builder.Services.ContainerDependencies();
 
-
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddFluentValidation();
 
 var app = builder.Build();
 
@@ -53,5 +41,16 @@ app.UseAuthorization();     //Herhangi bir sayfaya eriþip eriþilemeyeceðini beli
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+});
+
 
 app.Run();

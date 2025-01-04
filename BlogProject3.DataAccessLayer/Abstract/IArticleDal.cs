@@ -13,6 +13,10 @@ namespace BlogProject3.DataAccessLayer.Abstract
         List<Article> ArticleListWithCategoryAndAppUser();
         Article ArticleListWithCategoryAndAppUserByArticleId(int id);
         void ArticleViewCountIncrease(int id);
+        List<Article> GetArticlesByAppUserId(int id);
+
+
+
 
 
         List<Article> LastThreeArticles();

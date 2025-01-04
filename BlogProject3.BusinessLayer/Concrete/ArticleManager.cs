@@ -46,6 +46,11 @@ namespace BlogProject3.BusinessLayer.Concrete
             return _articleDal.GetAboutWriter(id);
         }
 
+        public List<Article> TGetArticlesByAppUserId(int id)
+        {
+            return _articleDal.GetArticlesByAppUserId(id);
+        }
+
         public Article TGetById(int id)
         {
             return _articleDal.GetById(id);

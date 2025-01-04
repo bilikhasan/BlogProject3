@@ -19,4 +19,8 @@
     <ProjectReference Include="..\BlogProject3.BusinessLayer\BlogProject3.BusinessLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Author\Data\" />
+  </ItemGroup>
+
 </Project>

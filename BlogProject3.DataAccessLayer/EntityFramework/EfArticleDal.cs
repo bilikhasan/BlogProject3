@@ -48,11 +48,18 @@ namespace BlogProject3.DataAccessLayer.EntityFramework
 
 
 
-  
+
         public Article GetAboutWriter(int id)
         {
             var context = new BlogContext();
             var values = context.Articles.Where(x => x.ArticleId == id).Include(y => y.AppUser).FirstOrDefault();
+            return values;
+        }
+
+        public List<Article> GetArticlesByAppUserId(int id)
+        {
+            var context = new BlogContext();
+            var values = context.Articles.Where(x => x.AppUserId == id).ToList();
             return values;
         }
 
