@@ -25,6 +25,12 @@ namespace BlogProject3.BusinessLayer.Concrete
         {
             return _commentDal.GetById(id);
         }
+
+        public List<Comment> TGetCommentsByAppUserId(int id)
+        {
+            return _commentDal.GetCommentsByAppUserId(id);
+        }
+
         public List<Comment> TGetCommentsByArticleId(int id)
         {
             return _commentDal.GetCommentsByArticleId(id);

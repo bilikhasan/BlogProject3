@@ -18,6 +18,13 @@ namespace BlogProject3.DataAccessLayer.EntityFramework
 
         }
 
+        public List<Comment> GetCommentsByAppUserId(int id)
+        {
+            var context = new BlogContext();
+            var values = context.Comments.Where(x => x.ArticleId == id).ToList();
+            return values;
+        }
+
         public List<Comment> GetCommentsByArticleId(int id)
         {
             var context = new BlogContext();

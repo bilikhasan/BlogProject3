@@ -33,6 +33,12 @@ namespace BlogProject3.PresentationLayer.Areas.Author.Controllers
             user.Surname = model.Surname;
             user.Email = model.Email;
             user.UserName = model.Username;
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, model.Password);
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("CategoryList", "Category"/*, new { Area ="AreaAdı"}*/ );
+            }
             return View();
         }
     }
