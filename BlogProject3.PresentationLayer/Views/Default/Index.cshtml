@@ -1,7 +1,6 @@
 ﻿@using BlogProject3.DataAccessLayer.Context
-@using X.PagedList;
-@using X.PagedList.Mvc.Core;
-@model IPagedList<Article>
+
+@model List<Article>
 
 @{
     Layout = null;
@@ -88,6 +87,9 @@
 
 
 
+                                  
+
+
 
                                 </div><!-- end blog-box -->
                             </div>
@@ -100,7 +102,7 @@
 
 
 
-                        @Html.PagedListPager(
+@*                         @Html.PagedListPager(
                                  (IPagedList)Model,
                                  page => Url.Action("Index", new { page }),
                                  new PagedListRenderOptions
@@ -116,7 +118,7 @@
                             LiElementClasses = new[] { "page-item" },
                             PageClasses = new[] { "page-link" }
                         }
-                                 )
+                                 ) *@
 
 
 

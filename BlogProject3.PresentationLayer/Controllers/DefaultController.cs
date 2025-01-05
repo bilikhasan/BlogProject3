@@ -3,9 +3,6 @@ using BlogProject3.DataAccessLayer.Context;
 using BlogProject3.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
-using X.PagedList;
-using X.PagedList.Extensions;
-
 
 
 namespace BlogProject3.PresentationLayer.Controllers
@@ -19,21 +16,14 @@ private readonly IArticleService _articleService;
             _articleService = articleService;
         }
 
-        public IActionResult Index(int page=1)
+        public IActionResult Index()
         {
             var context = new BlogContext();
-            var value = context.Articles.ToPagedList(page, 3);
+            var value = context.Articles.OrderByDescending(x=>x.CreatedDate).ToList();
             return View(value);
 
 
 
-
-
-
-            ////var context = new BlogContext();
-            ////var value = articleService.TArticleListWithCategoryAndAppUser();
-            ////var sayfa = value.ToPagedList(page, 3);
-            ////return View(sayfa);
 
         }
     }
