@@ -1,11 +1,4 @@
-﻿@* @using BlogProject3.DataAccessLayer.Context
-@using PagedList;
-@using PagedList.Mvc;
-@model PagedList.IPagedList<Article> *@
-
-
-
-
+﻿
 @model List<Article>
 
 @{
@@ -36,12 +29,6 @@
         }
     </table>
     <a href="/Article/CreateArticle/" class="btn btn-info">Yeni Makale Girişi</a>
-
-
-@*     @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new {sayfa}))
- *@
-
-
 
 </div>
 

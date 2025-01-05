@@ -3,8 +3,7 @@ using BlogProject3.BusinessLayer.Concrete;
 using BlogProject3.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using PagedList;
-using PagedList.Mvc;
+
 
 
 namespace BlogProject3.PresentationLayer.Controllers
@@ -68,16 +67,16 @@ namespace BlogProject3.PresentationLayer.Controllers
             return View(value);
         }
 
-
-
-
-
-
+        [HttpGet]
+        public IActionResult SubscribeNewsletter()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult SubscribeNewsletter(Newsletter newsletter)
         {
             _newsletterService.TInsert(newsletter);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Default");
         }
     }
 }

@@ -1,6 +1,14 @@
-﻿@{
+﻿@using BlogProject3.DataAccessLayer.Context
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<Article>
+
+@{
     Layout = null;
 }
+
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 
 
@@ -73,21 +81,47 @@
                                 <div class="blog-box wow fadeIn">
 
                                     <!-- end media -->
+                                   
+                                    
+                                    
                                     @await Component.InvokeAsync("_DefaultArticleListComponentPartial")
 
 
 
+
                                 </div><!-- end blog-box -->
-
-                                <hr class="invis">
-
-
                             </div>
                         </div>
 
-                        <hr class="invis">
 
-                        <div class="row">
+@*                         @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+ *@
+
+
+
+
+                        @Html.PagedListPager(
+                                 (IPagedList)Model,
+                                 page => Url.Action("Index", new { page }),
+                                 new PagedListRenderOptions
+                        {
+                            DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+                            DisplayLinkToLastPage = PagedListDisplayMode.Never,
+                            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+                            DisplayLinkToNextPage = PagedListDisplayMode.Always,
+                            LinkToPreviousPageFormat = "«",
+                            LinkToNextPageFormat = "»",
+                            MaximumPageNumbersToDisplay = 3,
+                            UlElementClasses = new[] { "pagination", "justify-content-center" },
+                            LiElementClasses = new[] { "page-item" },
+                            PageClasses = new[] { "page-link" }
+                        }
+                                 )
+
+
+
+
+@*                         <div class="row">
                             <div class="col-md-12">
                                 <nav aria-label="Page navigation">
                                     <ul class="pagination justify-content-center">
@@ -100,7 +134,14 @@
                                     </ul>
                                 </nav>
                             </div><!-- end col -->
-                        </div><!-- end row -->
+                        </div><!-- end row --> *@
+
+
+
+
+
+
+
                     </div><!-- end col -->
 
                     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
@@ -116,6 +157,8 @@
                 </div><!-- end row -->
             </div><!-- end container -->
         </section>
+
+
 
 
         <footer class="footer">
@@ -140,10 +183,9 @@
                 </div>
             </div><!-- end container -->
         </footer><!-- end footer -->
-
-
     </div><!-- end wrapper -->
     @await Component.InvokeAsync("_DefaultScriptsComponentPartial")
+
 
 </body>
 </html>

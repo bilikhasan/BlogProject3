@@ -1,6 +1,7 @@
 ﻿using BlogProject3.BusinessLayer.Abstract;
 using BlogProject3.DataAccessLayer.Context;
 using Microsoft.AspNetCore.Mvc;
+using X.PagedList.Extensions;
 
 namespace BlogProject3.PresentationLayer.ViewComponents
 {
