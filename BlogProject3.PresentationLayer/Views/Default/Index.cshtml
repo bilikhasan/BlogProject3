@@ -12,7 +12,6 @@
 
 @foreach (var item in Model)
 {
-    <hr class="invis">
     <div class="post-media">
         <a href="marketing-single.html" title="@item.Title">
             <img src="@item.CoverImageUrl" alt="" class="img-fluid">
@@ -40,24 +39,27 @@
         <small><a title="Bu yazı @item.CreatedDate.ToString("dd-MMM-yyyy") tarihinde oluşturulmuştur. ">@item.CreatedDate.ToString("dd-MMM-yyyy")</a></small>
         <small><a href="#" title="Bu yazı @item.AppUser.Name @item.AppUser.Surname tarafından oluşturulmuştur.">@item.AppUser.Name @item.AppUser.Surname</a></small>
         <small><a title="Bu yazı şimdiye kadar @item.ArticleViewCount görüntülenme almıştır."><i class="fa fa-eye"></i>@item.ArticleViewCount</a></small>
+
+        <hr class="invis">
+
     </div>
     <!-- end meta -->
 }
 
-                        @Html.PagedListPager(
-                                 (IPagedList)Model,
-                                 page => Url.Action("Index", new { page }),
-                                 new PagedListRenderOptions
-                        {
-                            DisplayLinkToFirstPage = PagedListDisplayMode.Never,
-                            DisplayLinkToLastPage = PagedListDisplayMode.Never,
-                            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
-                            DisplayLinkToNextPage = PagedListDisplayMode.Always,
-                            LinkToPreviousPageFormat = "«",
-                            LinkToNextPageFormat = "»",
-                            MaximumPageNumbersToDisplay = 3,
-                            UlElementClasses = new[] { "pagination", "justify-content-center" },
-                            LiElementClasses = new[] { "page-item" },
-                            PageClasses = new[] { "page-link" }
-                        }
-                                 )
+@Html.PagedListPager(
+                  (IPagedList)Model,
+                  page => Url.Action("Index", new { page }),
+                  new PagedListRenderOptions
+                                 {
+                                     DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+                                     DisplayLinkToLastPage = PagedListDisplayMode.Never,
+                                     DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+                                     DisplayLinkToNextPage = PagedListDisplayMode.Always,
+                                     LinkToPreviousPageFormat = "«",
+                                     LinkToNextPageFormat = "»",
+                                     MaximumPageNumbersToDisplay = 3,
+                                     UlElementClasses = new[] { "pagination", "justify-content-center" },
+                                     LiElementClasses = new[] { "page-item" },
+                                     PageClasses = new[] { "page-link" }
+                                 }
+                  )

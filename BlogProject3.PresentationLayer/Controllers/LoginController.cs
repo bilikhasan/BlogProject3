@@ -23,7 +23,7 @@ namespace BlogProject3.PresentationLayer.Controllers
             var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, true);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Category");
+                return RedirectToAction("EditMyProfile", "Profile", new { area = "Author" });
             }
             else
             {

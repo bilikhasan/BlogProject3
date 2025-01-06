@@ -1,11 +1,22 @@
 ﻿@model Newsletter
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+
 
 <div class="newsletter-widget text-center align-self-center">
     <h3>Hemen üye olun!</h3>
     <p>Haftalık Bültenimize abone olun ve güncellemeleri e-posta yoluyla alın.</p>
     <form asp-controller="Article" asp-action="SubscribeNewsletter" class="form-inline" method="post">
         <input type="text" asp-for="NewsletterEmail" placeholder="Email adresiniz..." class="form-control" />
-        <input type="submit" value="Kolayca Üye Olun" class="btn btn-default btn-block" />
+        <input type="submit"  id="btn1" value="Kolayca Üye Olun" class="btn btn-default btn-block" />
+
+    <script>
+    $('#btn1').click(function(){
+            swal("Tebrikler!", "Başarılı bir şekilde abone oldunuz!", "success");
+    })
+        </script>
     </form>
+
 </div><!-- end newsletter -->
