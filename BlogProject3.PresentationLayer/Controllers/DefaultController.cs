@@ -3,7 +3,9 @@ using BlogProject3.DataAccessLayer.Context;
 using BlogProject3.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
-
+using X.PagedList;
+using X.PagedList.Extensions;
+using X.PagedList.Mvc.Core;
 
 namespace BlogProject3.PresentationLayer.Controllers
 {
@@ -16,10 +18,9 @@ private readonly IArticleService _articleService;
             _articleService = articleService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int page =1)
         {
-            var context = new BlogContext();
-            var value = context.Articles.OrderByDescending(x=>x.CreatedDate).ToList();
+            var value = _articleService.TArticleListWithCategoryAndAppUser().ToPagedList(page, 2);
             return View(value);
 
 

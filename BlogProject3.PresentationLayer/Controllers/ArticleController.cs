@@ -78,5 +78,8 @@ namespace BlogProject3.PresentationLayer.Controllers
             _newsletterService.TInsert(newsletter);
             return RedirectToAction("Index","Default");
         }
+
+
+
     }
 }

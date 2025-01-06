@@ -106,16 +106,7 @@
 
 
 
-                            // buraya yorumlara gelecek AMA GELMEDI
-
-                            @await Component.InvokeAsync("_ArticleDetailCommentsComponentPartial")
-
-
-
-
-
-
-
+                            @await Component.InvokeAsync("_ArticleDetailCommentsComponentPartial" , new {id=Model.ArticleId})
 
 
 
@@ -135,6 +126,11 @@
                                     </div>
                                 </div>
                             </div>
+
+
+
+
+
                         </div><!-- end page-wrapper -->
                     </div><!-- end col -->
 

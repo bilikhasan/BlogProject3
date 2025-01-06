@@ -1,0 +1,167 @@
+﻿
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
+@await Component.InvokeAsync("_DefaultHeadComponentPartial")
+
+<html>
+<body>
+
+    <div id="wrapper">
+        <header class="market-header header">
+            <div class="container-fluid">
+                <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="marketing-index.html"><img src="~/markedia/images/version/market-logo.png" alt=""></a>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="marketing-index.html">Anasayfa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="marketing-category.html">Ürünler</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="marketing-category.html">Kategoriler</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="marketing-blog.html">Bloglar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="marketing-contact.html">İletişim</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Size Nasıl Yardımcı Olabilirim?">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+                        </form>
+                    </div>
+                </nav>
+            </div><!-- end container-fluid -->
+        </header><!-- end market-header -->
+
+        <section id="cta" class="section" style="background-image:url(https://i.hizliresim.com/ixi9816.jpg)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 align-self-center">
+                        <h2>Ray-Ban'dan Kendi Ekranı Bulunan Akıllı Gözlükler Geliyor</h2>
+                        <p class="lead">
+                            Meta'nın önümüzdeki yıl tanıtacağı Ray-Ban akıllı gözlüklerine ekran ekleyeceği iddia edildi. Meta, Ray-Ban ile iş birliğiyle geliştirdiği oldukça başarılı diyebileceğimiz akıllı gözlüklere sahipti. Ancak bu gözlüklerin yapabildikleri sınırlıydı. Kamerasıyla fotoğraf ve video çekme, telefonunuzdan müzik açma gibi işlevleri yerine getirme ve yapay zekâ entegrasyonu gibi özellikleri vardı.
+                        </p>
+                        <a href="#" class="btn btn-primary">Devamını Oku!</a>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+
+
+                        @await Component.InvokeAsync("_DefaultNewsletterComponentPartial")
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section lb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            <div class="blog-custom-build">
+                                <div class="blog-box wow fadeIn">
+
+                                    <!-- end media -->
+                                    
+                                    @RenderBody()
+
+
+
+
+
+
+
+                                </div><!-- end blog-box -->
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                     
+
+
+
+
+                        @*                         <div class="row">
+                            <div class="col-md-12">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div><!-- end col -->
+                        </div><!-- end row --> *@
+
+
+
+
+
+
+
+                    </div><!-- end col -->
+
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sidebar">
+
+                            @await Component.InvokeAsync("_DefaultRecentPostsListComponentPartial")
+
+                            @await Component.InvokeAsync("_DefaultCategoryListComponentPartial")
+
+
+                        </div><!-- end sidebar -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section>
+
+
+
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+
+                    @await Component.InvokeAsync("_DefaultFooterRecentPostComponentPartial")
+
+                    @await Component.InvokeAsync("_DefaultFooterPopularPostsComponentPartial")
+
+
+                    @await Component.InvokeAsync("_DefaultFooterPopularCategoriesComponentPartial")
+
+                </div><!-- end row -->
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <br>
+                        <br>
+                        <div class="copyright">&copy; Markedia. Design: <a href="http://html.design">HTML Design</a>.</div>
+                    </div>
+                </div>
+            </div><!-- end container -->
+        </footer><!-- end footer -->
+    </div><!-- end wrapper -->
+    @await Component.InvokeAsync("_DefaultScriptsComponentPartial")
+
+
+</body>
+</html>

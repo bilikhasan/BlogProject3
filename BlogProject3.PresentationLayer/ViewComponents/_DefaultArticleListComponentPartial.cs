@@ -2,6 +2,8 @@
 using BlogProject3.DataAccessLayer.Context;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList.Extensions;
+using X.PagedList;
+using X.PagedList.Mvc.Core;
 
 namespace BlogProject3.PresentationLayer.ViewComponents
 {
@@ -12,9 +14,9 @@ namespace BlogProject3.PresentationLayer.ViewComponents
         {
             _articleService = articleService;
         }
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int page =1)
         {
-            var values = _articleService.TArticleListWithCategoryAndAppUser();
+            var values = _articleService.TArticleListWithCategoryAndAppUser().ToPagedList(page,2);
             return View(values);
         }
     }

@@ -13,7 +13,7 @@ namespace BlogProject3.PresentationLayer.ViewComponents
 
         public IViewComponentResult Invoke (int id)
         {
-            var value = _commentService.TGetCommentsByArticleId(1);
+            var value = _commentService.TGetCommentsByArticleId(id);
             return View(value);
         }
     }
