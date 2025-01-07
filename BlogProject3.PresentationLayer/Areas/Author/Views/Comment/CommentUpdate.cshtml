@@ -1,0 +1,33 @@
+﻿@model Comment
+
+@{
+    ViewData["Title"] = "CommentUpdate";
+    Layout = "~/Areas/Author/Views/_AuthorLayout.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
+<div class="container">
+    <form method="post">
+        <input type="hidden" asp-for="CommentId" />
+
+        <label>Yorum Detay</label>
+        <input type="text" asp-for="CommentDetail" class="form-control" />
+        <br />
+
+        <label>Yorum Yapan Kişi</label>
+        <input type="text" asp-for="AppUserId" class="form-control" />
+        <br />
+
+        <label>Yorum Yapılan Yazı</label>
+        <input type="text" asp-for="Article" class="form-control" />
+        <br />
+
+        <label>Yorum Durum</label>
+        <input type="text" asp-for="Status" class="form-control" />
+        <br />
+        <button class="btn btn-info">Yorumu Güncelle</button>
+    </form>
+</div>

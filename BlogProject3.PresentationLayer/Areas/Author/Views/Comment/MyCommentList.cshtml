@@ -1,13 +1,27 @@
 ﻿@model List<Comment>
 
 @{
-    Layout = null;
+    Layout = "~/Areas/Author/Views/_AuthorLayout.cshtml";
 }
 
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-
-
-@foreach(var item in Model)
-{
-    <p> @item.CommentDetail - @item.ArticleId </p>
-}
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <td>ID</td>
+            <td>Yorum Detay</td>
+            <td>Yorum Sil</td>
+            <td>Yorum Güncelle</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ArticleId</td>
+                <td>@item.CommentDetail</td>
+                <td><a href="/Author/Comment/CommentDelete/@item.CommentId" class="btn btn-danger">Sil</a> </td>
+                <td><a href="/Author/Comment/CommentUpdate/@item.CommentId" class="btn btn-warning">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+</div>

@@ -3,12 +3,35 @@
 @{
     Layout = "~/Areas/Author/Views/_AuthorLayout.cshtml";
 }
-
-
-
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
+
 <div class="container">
+    <div class="card" style="width: 18rem;">
+        <form method="post">
+            <img style="height:200px; width:200px; margin-left:40px; border-radius:50%; border:3px solid #0026ff" class="card-img-top" src="https://media.licdn.com/dms/image/v2/C4D03AQFXyfOWVu4NjQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1576353181092?e=1741824000&v=beta&t=G-zxf225DPOC2tXZS1vBQmd-4r_2M19w_oysEt3I-fA" alt="@Model.Name @Model.Surname">
+
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name @Model.Surname</h5>
+                <p class="card-text">Hasan BİLİK, yazılım geliştirmede yeni olan ancak hızla öğrenen, web tasarımı ve geliştirme konularına ilgi duyan bir kişi.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <b>E-mail</b>
+                <input type="text" asp-for="Email" class="form-control" />
+                <b>Kullanıcı Adı</b>
+                <input type="text" asp-for="Username" class="form-control" />
+                <b>Şifreniz</b>
+                <input type="password" asp-for="Password" class="form-control" />
+            </ul>
+            <button class="btn btn-primary">Bilgileri Güncelle</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+@* <div class="container">
     <br /><br />
     <form method="post">
         <label>Adınız</label>
@@ -21,6 +44,7 @@
 
         <label>Kullanıcı Adınız</label>
         <input type="text" asp-for="Username" class="form-control" />
+
         <br />
 
         <label>Email Adresiniz</label>
@@ -32,4 +56,4 @@
         <br />
         <button class="btn btn-primary">Bilgileri Güncelle</button>
     </form>
-</div>
+</div> *@
