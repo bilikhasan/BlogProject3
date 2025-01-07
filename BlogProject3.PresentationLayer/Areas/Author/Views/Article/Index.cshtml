@@ -1,89 +1,46 @@
-﻿@model List<BlogProject3.EntityLayer.Concrete.Article>
+﻿@model List<Article>
 
 @{
-    Layout = null;
+    Layout = "~/Areas/Author/Views/_AuthorLayout.cshtml";
 }
 
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidebar ve Content</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      display: flex;
-      font-family: Arial, sans-serif;
-    }
-
-    .sidebar {
-      width: 250px;
-      height: 100vh;
-      background-color: #2c3e50;
-      color: #ecf0f1;
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
-    }
-
-    .sidebar h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .sidebar a {
-      color: #ecf0f1;
-      text-decoration: none;
-      font-size: 18px;
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
-
-    .sidebar a:hover {
-      background-color: #34495e;
-    }
-
-    .content {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .content h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    .content p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-  </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Dashboard Index</title>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Menü</h2>
-    <a href="#">Yazılarım</a>
-    <a href="#">Profilim</a>
-    <a href="#">Siteye Git</a>
-    <a href="#">Ayarlar</a>
-    <a href="#">Çıkış Yap</a>
-    <a href="#">Yorumlarım</a>
-  </div>
-  <div class="content">
-    <h1>Yazılarım</h1>
-        @foreach (var item in Model)
-        {
-            <h2>@item.Title</h2>
-            <br />
-        }
-  </div>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+    <br />
+    <br />
+    <div class="container">
+        <table class="table table-bordered">
+            <tr>
+                <th>Başlık</th>
+                <th>Sitede Gör</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td><a href="/Article/ArticleDetail/@item.ArticleId" class="btn btn-primary">Sitede Gör</a></td>
+                    <td><a href="/Author/Article/ArticleUpdate/@item.ArticleId" class="btn btn-warning">Güncelle</a></td>
+                    <td><a href="/Author/Article/ArticleDelete/@item.ArticleId" class="btn btn-danger">Sil</a></td>
+                </tr>
+            }
+        </table>
+        <a href="/Author/Article/ArticleCreate">Yeni Yazı Oluştur</a>
+    </div>
+
+
+
+
 </body>
 </html>

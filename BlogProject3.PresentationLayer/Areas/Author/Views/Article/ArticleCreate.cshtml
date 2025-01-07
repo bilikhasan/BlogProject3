@@ -1,0 +1,30 @@
+﻿@model Article
+
+@{
+    ViewData["Title"] = "ArticleCreate";
+    Layout = "~/Areas/Author/Views/_AuthorLayout.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<form method="post">
+    <div class="container">
+        <label>Kategori Seçiniz</label>
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
+        <br />
+
+        <label>Görsel</label>
+        <input type="text" asp-for="CoverImageUrl" class="form-control" />
+        <br />
+
+        <label>Başlık</label>
+        <input type="text" asp-for="Title" class="form-control" placeholder="Başlığınızı buraya yazın." />
+        <br />
+
+        <label>İçerik</label>
+        <textarea asp-for="Detail" rows="10" class="form-control" placeholder="Oluşturacağınız içeriği buraya yazın."></textarea>
+        <br />
+        <button type="submit" class="btn btn-primary">Oluştur</button>
+    </div>
+</form>

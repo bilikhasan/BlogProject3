@@ -38,19 +38,40 @@ app.UseRouting();
 app.UseAuthentication();    //Bir sayfaya login olmak için kullanýlýr.
 app.UseAuthorization();     //Herhangi bir sayfaya eriþip eriþilemeyeceðini belirler.Sadece member lar eriþsin/Admin ulaþsýn...
 
+
+
+// Alanlar için rota desteði
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+);
+
+// Varsayýlan rota
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 
 
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-      name: "areas",
-      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-    );
-});
+
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapControllerRoute(
+//      name: "areas",
+//      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+//    );
+//});
+
+
+
+
 
 
 app.Run();

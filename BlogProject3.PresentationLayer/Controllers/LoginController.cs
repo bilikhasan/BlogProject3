@@ -23,9 +23,9 @@ namespace BlogProject3.PresentationLayer.Controllers
             var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, true);
             if (result.Succeeded)
             {
-                return RedirectToAction("EditMyProfile", "Profile", new { area = "Author" });
+                return RedirectToAction("Index", "Article", new { area = "Author" },null );
             }
-            else
+            else                                          /*  AREAS ICIN LINK VERME*/
             {
                 return View();
             }
