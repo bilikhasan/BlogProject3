@@ -46,11 +46,6 @@ namespace BlogProject3.PresentationLayer.Controllers
                 return View();
             }
 
-
-
-
-
-
         }
         public IActionResult DeleteCategory(int id)
         {

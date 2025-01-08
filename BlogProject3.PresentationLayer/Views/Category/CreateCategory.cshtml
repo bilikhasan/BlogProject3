@@ -2,7 +2,7 @@
 
 
 @{
-    Layout = null;
+    Layout = "~/Areas/Author/Views/_AuthorLayout.cshtml";
 }
 
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -15,6 +15,6 @@
         <input type="text" asp-for="CategoryName" class="form-control" />
         <span class="text-danger" asp-validation-for="CategoryName"></span>
         <br />
-        <button class="btn btn-primary">Kategoriyi Ekle</button>
+        <a class="btn btn-primary">Kategoriyi Ekle</a>
     </form>
 </div>

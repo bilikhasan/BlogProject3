@@ -1,7 +1,7 @@
 ﻿@model List<BlogProject3.EntityLayer.Concrete.Category>
 
 @{
-    Layout = null;
+    Layout = "~/Areas/Author/Views/_AuthorLayout.cshtml";
 }
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 <br /><br />
@@ -25,5 +25,5 @@
             </tr>
         }
     </table>
-    <a href="#" class="btn btn-primary">Yeni Kategori Oluştur</a>
+    <a href="/Category/CreateCategory/" class="btn btn-primary">Yeni Kategori Oluştur</a>
 </div>
